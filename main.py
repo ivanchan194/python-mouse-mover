@@ -1,7 +1,9 @@
 import pyautogui
-pyautogui.PAUSE = 1
 
 width, height = pyautogui.size()
 
-print(width)
-print(height)
+for i in range(10):
+    pyautogui.moveRel(100, 100, duration=0.25)
+    pyautogui.moveRel(200, 100, duration=0.25)
+    pyautogui.moveRel(200, 200, duration=0.25)
+    pyautogui.moveRel(100, 200, duration=0.25)
