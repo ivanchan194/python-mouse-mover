@@ -10,20 +10,21 @@ mouse = Mouse(currentX, currentY)
 #    mouse.moveX(1)
 #    time.sleep(1)
 def moveMouse():
-    while (True):
+    duration = int(entryDuration.get())
+    while (duration > 0):
         step = int(entryStep.get())
         interval = int(entryInterval.get())
-        #duration = int(entryDuration.get())
         mouse.moveX(step)
         labelTextX.set("Current X: " + str(mouse.x))
         labelTextY.set("Current Y: " + str(mouse.y))
+        duration -= 1
         time.sleep(interval)
         root.update_idletasks()
 
 root = tkinter.Tk()
 
 root.title("Mouse Mover")
-#root.minsize(500, 300)
+root.minsize(300, 100)
 
 # Creating Frames for each input
 topFrameStep = tkinter.Frame(root)
