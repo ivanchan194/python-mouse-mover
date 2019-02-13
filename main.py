@@ -15,9 +15,10 @@ def moveMouse():
         interval = int(entryInterval.get())
         #duration = int(entryDuration.get())
         mouse.moveX(step)
-        labelTextX.set("Current A: " + str(mouse.x))
-        labelTextY.set("Current B: " + str(mouse.y))
+        labelTextX.set("Current X: " + str(mouse.x))
+        labelTextY.set("Current Y: " + str(mouse.y))
         time.sleep(interval)
+        root.update_idletasks()
 
 root = tkinter.Tk()
 
@@ -44,7 +45,7 @@ entryStep.pack(side = tkinter.RIGHT, ipadx=6)
 labelInterval = tkinter.Label(topFrameInterval, text = "Interval: ")
 labelInterval.pack(side = tkinter.LEFT)
 entryInterval = tkinter.Entry(topFrameInterval)
-entryInterval.pack(side = tkinter.RIGHT, ipadx=1)
+entryInterval.pack(side = tkinter.RIGHT)
 
 # Duration Input
 labelDuration = tkinter.Label(topFrameDuration, text = "Duration: ")
@@ -54,13 +55,13 @@ entryDuration.pack(side = tkinter.RIGHT)
 
 # Bottom Information
 labelTextX = tkinter.StringVar()
-labelTextX.set("Current X: ")
-labelPositionX = tkinter.Label(bottomFrame, textVariable = labelTextX)
+labelTextX.set("Current X: " + str(mouse.x))
+labelPositionX = tkinter.Label(bottomFrame, textvariable = labelTextX)
 labelPositionX.pack()
 
 labelTextY = tkinter.StringVar()
-labelTextY.set("Current Y: ")
-labelPositionY = tkinter.Label(bottomFrame, textVariable = labelTextY)
+labelTextY.set("Current Y: " + str(mouse.y))
+labelPositionY = tkinter.Label(bottomFrame, textvariable = labelTextY)
 labelPositionY.pack()
 
 buttonRun = tkinter.Button(bottomFrame, text="Run", command=moveMouse)
