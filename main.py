@@ -6,9 +6,11 @@ screenWidth, screenHeight = pyautogui.size()
 
 mouse = Mouse(currentX, currentY)
 
-#while mouse.x < screenWidth and mouse.y < screenHeight:
-#    mouse.moveX(1)
-#    time.sleep(1)
+while mouse.x < screenWidth and mouse.y < screenHeight:
+    mouse.moveX(1)
+    time.sleep(1)
+
+    
 def moveMouse():
     duration = int(entryDuration.get())
     while (duration > 0):
